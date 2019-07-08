@@ -45,7 +45,7 @@ class ChatTest {
             it.token(botToken)
                     .channel(channelName)
                     .user(user.id)
-                    .text("Hey ${user.name}, This message is only visible to you")
+                    .text("Hey ${user.name}, this message is only visible to you")
         }
         logger.info("response: {}", response)
         assertNull(response.error)
