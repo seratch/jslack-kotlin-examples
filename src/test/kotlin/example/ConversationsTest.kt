@@ -27,16 +27,16 @@ class ConversationsTest {
         val response = slack.methods().conversationsList {
             it.token(token)
                     .excludeArchived(true)
-                    .limit(100)
+                    .limit(1000)
         }
         logger.info("response: {}", response)
         assertNull(response.error)
 
         val activeConversations = response.channels.filter { !it.isArchived }
-        val allChannels = activeConversations.filter { it.isChannel && !it.isPrivate }
+        val publicChannels = activeConversations.filter { it.isChannel && !it.isPrivate }
         val privateChannels = activeConversations.filter { (it.isChannel && it.isPrivate) || it.isGroup }
 
-        logger.info("allChannels: {}, privateChannels: {}", allChannels.map { it.name }, privateChannels.map { it.name })
+        logger.info("public: {}, private: {}", publicChannels.map { it.name }, privateChannels.map { it.name })
     }
 
 }
