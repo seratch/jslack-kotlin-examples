@@ -11,20 +11,20 @@ class AuditLogsTest {
 
     @Test
     fun schemas() {
-        val schemasResponse = slack.audit(adminUserToken).schemas
-        assertNull(schemasResponse.error)
+        val response = slack.audit(adminUserToken).schemas
+        assertNull(response.error)
     }
 
     @Test
     fun actions() {
-        val schemasResponse = slack.audit(adminUserToken).actions
-        assertNull(schemasResponse.error)
+        val response = slack.audit(adminUserToken).actions
+        assertNull(response.error)
     }
 
     @Test
     fun getLogs() {
-        val schemasResponse = slack.audit(adminUserToken).getLogs { it.action("user_login").limit(5) }
-        assertNull(schemasResponse.error)
+        val response = slack.audit(adminUserToken).getLogs { it.action("user_login").limit(5) }
+        assertNull(response.error)
     }
 
 }
