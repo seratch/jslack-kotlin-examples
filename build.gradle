@@ -9,11 +9,11 @@ repositories {
 
 dependencies {
     implementation 'com.github.seratch:jslack-api-client:1.8.0'
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+    testImplementation 'ch.qos.logback:logback-classic:1.2.3'
 }
 
 application {

@@ -15,7 +15,7 @@ class ReactionsTest {
 
     @Test
     fun reactionsList() {
-        val response = slack.methods().reactionsList { it.token(userToken).count(100) }
+        val response = slack.methods(userToken).reactionsList { it.count(100) }
         assertNull(response.error)
 
         logger.info("items: {}", response.items.map {

@@ -15,14 +15,14 @@ class TeamTest {
 
     @Test
     fun teamInfo() {
-        val response = slack.methods().teamInfo { it.token(botToken) }
+        val response = slack.methods(botToken).teamInfo { it }
         logger.info("response: {}", response)
         assertNull(response.error)
     }
 
     @Test
     fun teamBillableInfo() {
-        val response = slack.methods().teamBillableInfo { it.token(userToken) }
+        val response = slack.methods(userToken).teamBillableInfo { it }
         logger.info("response: {}", response)
         assertNull(response.error)
     }

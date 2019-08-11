@@ -14,7 +14,7 @@ class FilesTest {
 
     @Test
     fun filesList() {
-        val response = slack.methods().filesList { it.token(userToken).count(100) }
+        val response = slack.methods(userToken).filesList { it.count(100) }
         assertNull(response.error)
 
         logger.info("file names: {}", response.files.map { it.name })

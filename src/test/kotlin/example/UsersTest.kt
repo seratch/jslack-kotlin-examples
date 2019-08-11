@@ -14,7 +14,7 @@ class UsersTest {
 
     @Test
     fun usersList() {
-        val response = slack.methods().usersList { it.token(botToken).limit(100) }
+        val response = slack.methods(botToken).usersList { it.limit(100) }
         assertNull(response.error)
 
         logger.info("users: {}", response.members.map { it.name })

@@ -24,10 +24,8 @@ class ConversationsTest {
     }
 
     private fun conversationsList(token: String) {
-        val response = slack.methods().conversationsList {
-            it.token(token)
-                    .excludeArchived(true)
-                    .limit(1000)
+        val response = slack.methods(token).conversationsList {
+            it.excludeArchived(true).limit(1000)
         }
         logger.info("response: {}", response)
         assertNull(response.error)

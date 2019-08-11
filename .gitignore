@@ -20,3 +20,4 @@ typescript-types/dist/
 logs/
 out/
 bin/
+lib/

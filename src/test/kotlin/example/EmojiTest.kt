@@ -14,7 +14,7 @@ class EmojiTest {
 
     @Test
     fun emojiList() {
-        val response = slack.methods().emojiList { it.token(userToken) }
+        val response = slack.methods(userToken).emojiList { it }
         assertNull(response.error)
 
         logger.info("custom emoji list: {}", response.emoji.map { it.key })

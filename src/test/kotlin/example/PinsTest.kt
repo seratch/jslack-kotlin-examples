@@ -17,7 +17,7 @@ class PinsTest {
     @Test
     fun filesList() {
         val channelId = slack.shortcut(ApiToken.of(userToken)).findChannelIdByName(ChannelName.of("general"))
-        val response = slack.methods().pinsList { it.token(userToken).channel(channelId.get().value) }
+        val response = slack.methods(userToken).pinsList { it.channel(channelId.get().value) }
         assertNull(response.error)
 
         logger.info("item types: {}", response.items.map { it.type })

@@ -14,7 +14,7 @@ class RemindersTest {
 
     @Test
     fun remindersList() {
-        val response = slack.methods().remindersList { it.token(userToken) }
+        val response = slack.methods(userToken).remindersList { it }
         logger.info("reminders: {}", response.reminders)
         assertNull(response.error)
     }

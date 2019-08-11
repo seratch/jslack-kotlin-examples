@@ -14,9 +14,8 @@ class SearchTest {
 
     @Test
     fun searchAll() {
-        val response = slack.methods().searchAll {
-            it.token(userToken)
-                    .highlight(true)
+        val response = slack.methods(userToken).searchAll {
+            it.highlight(true)
                     .query("Searchable Log of All Conversation and Knowledge")
                     .count(5)
                     .page(2)
